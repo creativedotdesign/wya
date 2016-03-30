@@ -1,0 +1,42 @@
+html { height: 100%; }
+
+body {
+  &.footer-sticky { // Flexbox supported browsers only.
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    .wrapper {
+      flex: 1 0 auto;
+      width: 100%;
+    }
+  }
+}
+
+header {
+  flex: none;
+}
+
+nav {
+  flex: none;
+}
+
+footer {
+  flex: none;
+  background-color: $gray-lightest;
+}
+
+// IE 11 flexbox fix.
+// TODO: Remove when fixed in bootstrap.
+// https://github.com/twbs/bootstrap/issues/17310
+@if $enable-flex {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      @for $size from 1 through $grid-columns {
+        .col-#{$breakpoint}-#{$size} {
+          max-width: percentage($size / $grid-columns);
+        }
+      }
+    }
+  }
+}

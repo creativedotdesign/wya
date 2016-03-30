@@ -1,0 +1,14 @@
+root: true
+
+env:
+  browser: true
+  jquery: true
+  node: true
+  amd: true
+
+parser: babel-eslint
+
+extends: eslint:recommended
+
+rules:
+  no-console: 0

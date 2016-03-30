@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light">
+  <button class="navbar-toggler hidden-sm-up collapsed" type="button" data-toggle="collapse" data-target="#main-menu">
+    <div class="bar-wrapper">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <span class="sr-only">Toggle Navigation Button</span>
+  </button>
+  <a class="navbar-brand" href="/"></a>
+  <div id="main-menu" class="collapse navbar-toggleable-xs navbar-wrapper">
+
+    <ul class="nav navbar-nav">
+      {% for value in nav %}
+        <li>{{ value }}</li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</nav>

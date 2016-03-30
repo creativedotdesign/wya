@@ -1,0 +1,34 @@
+{
+  "scripts": {
+    "main.js": [
+      "main.js"
+    ],
+    "head.js": [
+      "head.js"
+    ]
+  },
+  "styles": {
+    "main.css": [
+      "main.scss"
+    ]
+  },
+  "json": [
+    "index.json",
+    "nav.json"
+  ],
+  "paths": {
+    "source": "src/",
+    "dist": "dist/",
+    "images": "src/images/",
+    "svgs": "src/svgs/",
+    "scripts": "src/scripts/",
+    "fonts": "src/fonts/",
+    "styles": "src/styles/",
+    "twig": "src/twig/",
+    "lang": "src/languages/en/"
+  },
+  "config": {
+    "devUrl": "http://wya.dev",
+    "stagingUrl": "http://wya.dev"
+  }
+}
