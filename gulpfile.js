@@ -33,6 +33,9 @@ require('./gulp/scripts')(gulp, production, browserSync);
 // Lint js files
 require('./gulp/scripts-lint')(gulp, production, allowlint);
 
+// Lint json files
+require('./gulp/json-lint')(gulp);
+
 // Min / Crush images
 require('./gulp/images')(gulp, production);
 
