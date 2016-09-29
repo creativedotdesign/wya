@@ -2,7 +2,7 @@
 "index": {
   "page_name": "home",
   "class": "home",
-  "meta-title": "Wya - Simply Static",
-  "meta-desc": "Welcome to Wya. A simple static website."
+  "meta_title": "Wya - Simply Static",
+  "meta_desc": "Welcome to Wya. A simple static website."
   }
 }
