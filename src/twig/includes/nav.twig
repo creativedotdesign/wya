@@ -1,5 +1,5 @@
-<nav class="navbar navbar-light">
-  <button class="navbar-toggler hidden-sm-up collapsed" type="button" data-toggle="collapse" data-target="#main-menu">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <div class="bar-wrapper">
       <span class="bar"></span>
       <span class="bar"></span>
@@ -7,14 +7,14 @@
     </div>
     <span class="sr-only">Toggle Navigation Button</span>
   </button>
-  <a class="navbar-brand" href="/"></a>
-  <div id="main-menu" class="collapse navbar-toggleable-xs navbar-wrapper">
 
-    <ul class="nav navbar-nav">
+  <a class="navbar-brand" href="#">{{ website_name }}</a>
+  
+  <div class="collapse navbar-collapse" id="main-menu">
+    <ul class="navbar-nav">
       {% for value in nav %}
-        <li>{{ value }}</li>
+        <li class="nav-item"><a class="nav-link" href="{{ value.link }}">{{ value.text }}</a></li>
       {% endfor %}
     </ul>
-
   </div>
 </nav>

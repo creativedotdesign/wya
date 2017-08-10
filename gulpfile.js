@@ -1,13 +1,15 @@
 var gulp        = require('gulp-help')(require('gulp'), {hideDepsMessage: true}),
-    argv        = require('yargs').argv,
+    util        = require('gulp-util'),
     gulpif      = require('gulp-if'),
     plumber     = require('gulp-plumber'),
     notify      = require('gulp-notify'),
     browserSync = require('browser-sync').create();
 
-var production = argv.production || false,
-    allowlint  = argv.allowlint  || false,
-    stagingUrl = argv.stagingUrl || false;
+var production = util.env.production || false,
+  allowlint    = util.env.allowlint || false,
+  stagingUrl   = util.env.stagingUrl || false,
+  mobile       = util.env.desktop || false,
+  slug         = util.env.slug || '';
 
 // Override standard gulp.src task to use plumber
 var _gulpsrc = gulp.src;
@@ -54,6 +56,18 @@ require('./gulp/clean')(gulp);
 // Build the HTML from twig files
 require('./gulp/twig')(gulp);
 
+// Ngrok for tunnels
+require('./gulp/ngrok')(gulp, util, browserSync);
+
+// Google Page Speed Insights
+require('./gulp/psi')(gulp, util, slug, mobile);
+
+// W3C HTML validation
+require('./gulp/w3c-validate')(gulp, util, slug);
+
+// WAVE Accessibility validation
+require('./gulp/wave')(gulp, util, slug);
+
 // Watch Files For Changes
 require('./gulp/watch')(gulp, browserSync);
 
@@ -65,6 +79,7 @@ gulp.task('build',
     'styles',
     'scripts',
     'fonts',
+    'twig'
   ]
 );
 

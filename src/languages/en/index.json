@@ -3,6 +3,7 @@
   "page_name": "home",
   "class": "home",
   "meta_title": "Wya - Simply Static",
-  "meta_desc": "Welcome to Wya. A simple static website."
+  "meta_desc": "Welcome to Wya. A simple static website.",
+  "tagline": "Demo tagline!"
   }
 }

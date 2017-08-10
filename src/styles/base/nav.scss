@@ -1,19 +1,21 @@
-// It's probably best to leave this section alone and add your own overrides afterwards.
-
-.navbar-sticky-top {
+// Probably best to leave this section alone and add your own overrides afterwards.
+.sticky-top {
   top: 0;
 
-  &:before,
-  &:after {
-    content: '';
+  &::before,
+  &::after {
+    content: "";
     display: table;
   }
 }
 
 // Override classes for responsive menu
-.navbar-wrapper {
+.navbar {
+  background-color: $gray-lightest;
+  width: 100%;
   @include media-breakpoint-up(sm) {
-    .menu-center & { // Flexbox based centered menu.
+    // Flexbox based centered menu.
+    .menu-center & {
       display: flex !important;
       justify-content: center;
 
@@ -24,7 +26,6 @@
       }
     }
   }
-
   @include media-breakpoint-down(xs) {
     clear: both;
 
@@ -55,18 +56,13 @@
   }
 }
 
-.navbar {
-  background-color: $gray-lightest;
-  padding: 0;
-}
-
 .navbar-brand {
-  margin-left: 1rem;
+  z-index: 1;
 }
 
 .dropdown-header {
   h6 {
-    padding-top:    .425rem;
+    padding-top: .425rem;
     padding-bottom: .425rem;
     margin-bottom: 0;
   }
@@ -74,32 +70,48 @@
 
 // Helper class to center unknown width ul nav bar
 .menu-center {
-  .navbar-brand {
-    position: absolute;
+  .navbar-collapse {
+    position: relative;
+
+    .nav-link {
+      text-align: center;
+    }
+
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .navbar-nav {
+    margin: 0 auto;
   }
 }
 
-@include media-breakpoint-up(sm) {
-  .menu-right {
-    .navbar-nav {
-      float: right;
-      padding-right: 5px;
-    }
+.menu-right {
+  .navbar-nav {
+    margin-left: auto;
+  }
 
-    .dropdown-menu {
-      @extend .dropdown-menu-right;
-    }
+  .dropdown-menu {
+    right: 0;
+    left: auto;
   }
 }
 
 .navbar-toggler {
   float: right;
-  padding: .5rem;
+  padding: .75rem;
   display: block;
-  position: absolute;
-  top: 5px;
-  right: .25rem;
+  right: .5rem;
   width: $bar-width * 2;
+
+  .navbar-light & {
+    background-image: none;
+    border: 0;
+  }
 
   &:focus {
     outline: 0;
@@ -108,12 +120,14 @@
   .bar-wrapper {
     width: $bar-width;
     height: ($bar-height * 3 + $bar-spacing * 2);
+    display: block;
+    margin: 0 auto;
   }
 
   .bar {
     transition: top 250ms ease, transform 250ms ease 250ms, opacity 100ms ease 250ms;
     display: block;
-    background: $color;
+    background: $hamburger-bar-color;
     width: $bar-width;
     height: $bar-height;
     position: relative;
