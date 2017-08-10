@@ -13,6 +13,7 @@
     ]
   },
   "json": [
+    "global.json",
     "index.json",
     "nav.json"
   ],

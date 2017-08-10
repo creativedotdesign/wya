@@ -7,7 +7,7 @@ var manifest = require('../src/manifest.json'),
     data     = require('gulp-data'),
     merge    = require('merge'),
     path     = require('path'),
-    debug = require('gulp-debug');
+    debug    = require('gulp-debug');
 
 // Compile SCSS to CSS
 module.exports = function (gulp, production, browserSync) {
@@ -24,7 +24,7 @@ module.exports = function (gulp, production, browserSync) {
         }
       );
 
-      console.log(json);
+      // console.log(json);
 
       var parsed;
 
@@ -33,8 +33,8 @@ module.exports = function (gulp, production, browserSync) {
         parsed = merge(parsed, obj);
       });
 
-      console.log('Finished Loop');
-      console.log(parsed);
+      // console.log('Finished Loop');
+      // console.log(parsed);
 
      gulp.src('src/twig/*.twig')
         .pipe(data(parsed))
